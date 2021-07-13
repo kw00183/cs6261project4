@@ -1,0 +1,28 @@
+Jenkinsfile (Declarative Pipeline)
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                npm install
+            }
+        }
+        stage('Test') {
+            steps {
+                ng test
+            }
+        }
+        stage('E2E') {
+            steps {
+                echo 'Not yet implemented'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Not yet implemented'
+            }
+        }
+    }
+}
