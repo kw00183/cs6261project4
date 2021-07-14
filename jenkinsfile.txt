@@ -4,22 +4,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
                 sh 'npm install'
             }
         }
-        stage('Test') {
+        stage('test') {
             steps {
                 sh 'ng test'
             }
         }
-        stage('E2E') {
+        stage('e2e') {
             steps {
                 echo 'Not yet implemented'
             }
         }
-        stage('Deploy') {
+        stage('deploy') {
             steps {
                 echo 'Not yet implemented'
             }
