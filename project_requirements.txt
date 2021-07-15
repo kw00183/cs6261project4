@@ -65,3 +65,16 @@ ng generate class model/stock
 <!-- ##### Generate Service ##### //-->
 
 ng generate service services/round
+
+<!-- ##### Protractor Setup ##### //-->
+
+Start by downloading my project 2 solution and installing it via:
+
+$ unzip project3-starter.zip
+$ cd project3
+$ npm install
+
+It looks like it doesn't have protractor installed, so do:
+
+$ npm install protractor --save-dev (NOTE: no -g option!)
+$ ./node_modules/protractor/bin/webdriver-manager update
