@@ -1,46 +1,22 @@
-FROM node:14.17.3
+FROM node:14.17.3 as builder
 
 LABEL "maintainer"="kw00183@my.westga.edu"
 
 USER root
 
-ENV AP /data/app
-ENV SCPATH /etc/supervisor/conf.d
+WORKDIR /app
 
-RUN apt-get -y update
+ENV PATH /app/node_modules/.bin:$PATH
 
-# The daemons
-RUN apt-get -y install supervisor
-RUN mkdir -p /var/log/supervisor
-
-# Supervisor Configuration
-ADD ./supervisord/conf.d/* $SCPATH/
-
-# Application Code
-ADD *.js* $AP/
-
-WORKDIR $AP
-
+COPY package.json /app/package.json
 RUN npm install -g @angular/cli
 RUN npm install -g http-server
-//RUN ng run build
-RUN http-server -p 4200
 
+COPY . /app
 
-CMD ng serve --port 4200
-
-//RUN docker_commands.sh
-
-# Build container
-FROM golang:alpine as builder
-RUN apk update && \
-    apk add git && \
-    CGO_ENABLED=0 go get -a -ldflags '-s' github.com/kw00183/cs6261project4
+CMD docker_commands.sh
 
 # Production container
-FROM scratch
-COPY --from=builder /go/bin/cs6261project4 /cs6261project4
-EXPOSE 4200
-CMD ["/cs6261project4"]
-
-CMD ["supervisord", "-n"]
+#FROM scratch
+#COPY --from=builder /dist/cs6261project4 /testimage
+#EXPOSE 4200

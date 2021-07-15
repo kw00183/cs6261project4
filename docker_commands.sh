@@ -1,4 +1,4 @@
 #!/bin/bash
-echo "hello, $USER. I wish to list some files of yours"
-echo "listing files in the current directory, $PWD"
-ls  # list files
+ng build
+http-server ./dist/cs6261project4 -p 4200
+echo 'Hello World'
