@@ -14,7 +14,7 @@ RUN npm install -g http-server
 
 COPY . /app
 
-CMD docker_commands.sh
+CMD sh docker_commands.sh
 
 # Production container
 #FROM scratch
