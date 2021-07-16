@@ -89,3 +89,5 @@ docker run -v ${PWD}:/app -p 4200:4200 testimage
 docker ps -a
 
 docker logs <containerId>
+
+ng e2e --devServerTarget=
