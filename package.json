@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~9.1.7",
     "@angular/platform-browser-dynamic": "~9.1.7",
     "@angular/router": "~9.1.7",
+    "http-server": "^0.12.3",
     "karma-firefox-launcher": "^2.1.1",
     "karma-spec-reporter": "0.0.32",
     "rxjs": "~6.5.4",

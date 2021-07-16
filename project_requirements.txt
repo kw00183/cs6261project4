@@ -78,3 +78,7 @@ It looks like it doesn't have protractor installed, so do:
 
 $ npm install protractor --save-dev (NOTE: no -g option!)
 $ ./node_modules/protractor/bin/webdriver-manager update
+
+<!-- ##### Docker ##### //-->
+docker build -t testimage .
+docker run node:testimage
