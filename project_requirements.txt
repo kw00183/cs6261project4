@@ -1,11 +1,11 @@
-<!-- ##### Required Project Changes ##### //-->
+<!-- ##### Required Project Changes to new Angular App ##### //-->
 
-Create a new Angular project on your virtual machine (e.g., in /Documents): ng new project2
+Create a new Angular project on your virtual machine (e.g., in /Documents): ng new <projectname>
 
 While inside your project directory, install the following packages via npm install --save-dev:
 
-    karma-firefox-launcher
-    karma-spec-reporter
+    npm install --save-dev: karma-firefox-launcher
+    npm install --save-dev: karma-spec-reporter
 
 Then in karma.conf.js, make the following changes:
 
@@ -48,7 +48,7 @@ git clone https://github.com/shyamseshadri/angular-up-and-running.git
 
 <!-- ##### Create New Application ##### //-->
 
-ng new stock-market
+ng new <projectname>
 
 <!-- ##### Run Application ##### //-->
 
