@@ -2,9 +2,22 @@ p {
   margin: 0;
 }
 
-round-container {
+#round-container {
   border: 1px solid #000000;
   border-radius: 25px;
   padding: 20px;
   margin: 0 20px;
+}
+
+.header-digits {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.padding-left20 {
+  padding-left: 20px;
+}
+
+.inline {
+  display: inline-block;
 }
