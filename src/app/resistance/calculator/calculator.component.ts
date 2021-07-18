@@ -7,23 +7,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculatorComponent implements OnInit {
 
-//  public array: colorBand = [
-//    {color: 'black', figure: 0, multiply: 1, tolerance: null},
-//    {color: 'brown', figure: 1, multiply: 10, tolerance: 1},
-//    {color: 'red', figure: 2, multiply: 100, tolerance: 2},
-//    {color: 'orange', figure: 3, multiply: 1000, tolerance: null},
-//    {color: 'yellow', figure: 4, multiply: 10000, tolerance: null},
-//    {color: 'green', figure: 5, multiply: 100000, tolerance: 0.5},
-//    {color: 'blue', figure: 6, multiply: 1000000, tolerance: 0.25},
-//    {color: 'violet', figure: 7, multiply: 10000000, tolerance: 0.1},
-//    {color: 'grey', figure: 8, multiply: 100000000, tolerance: 0.05},
-//    {color: 'white', figure: 9, multiply: 1000000000, tolerance: null},
-//    {color: 'gold', figure: null, multiply: 0.1, tolerance: 5},
-//    {color: 'silver', figure: null, multiply: 0.01, tolerance: 10},
-//    {color: 'none', figure: null, multiply: null, tolerance: 20},
-//  ];
+  public colorBands: string[];
+  public colorMultiplier: string[];
+  public colorTolerance: string[];
 
-  constructor() {}
+  constructor() {
+    this.colorBands = [
+      {id: 0, name: '0 black'},
+      {id: 1, name: '1 brown'},
+      {id: 2, name: '2 red'},
+      {id: 3, name: '3 orange'},
+      {id: 4, name: '4 yellow'},
+      {id: 5, name: '5 green'},
+      {id: 6, name: '6 blue'},
+      {id: 7, name: '7 violet'},
+      {id: 8, name: '8 grey'},
+      {id: 9, name: '9 white'}
+    ];
+
+    this.colorMultiplier = [
+      {id: 0, name: 'x1 black'},
+      {id: 1, name: 'x10 brown'},
+      {id: 2, name: 'x100 red'},
+      {id: 3, name: 'x1K orange'},
+      {id: 4, name: 'x10K yellow'},
+      {id: 5, name: 'x100K green'},
+      {id: 6, name: 'x1M blue'},
+      {id: 7, name: 'x10M violet'},
+      {id: 8, name: 'x100M grey'},
+      {id: 9, name: 'x1G white'},
+      {id: 10, name: '÷10 gold'},
+      {id: 11, name: '÷100 silver'},
+    ];
+  }
 
   ngOnInit(): void {
   }

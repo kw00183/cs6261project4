@@ -18,10 +18,3 @@ h6 {
 p {
   margin: 0;
 }
-
-round-container {
-  border: 1px solid #000000;
-  border-radius: 25px;
-  padding: 20px;
-  margin: 0 20px;
-}
