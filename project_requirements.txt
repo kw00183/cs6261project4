@@ -1,3 +1,8 @@
+<!-- ##### Configure Git ##### //-->
+
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+
 <!-- ##### Required Project Changes to new Angular App ##### //-->
 
 Create a new Angular project on your virtual machine (e.g., in /Documents): ng new <projectname>
