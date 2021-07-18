@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculatorComponent implements OnInit {
 
-  public colorBands: {id: number, name: string};
-  public colorMultiplier: {id: number, name: string, value: number};
-  public colorTolerance: {id: number, name: string, value: string};
+  public colorBands: {};
+  public colorMultiplier: {};
+  public colorTolerance: {};
 
   constructor() {
     this.colorBands = [
