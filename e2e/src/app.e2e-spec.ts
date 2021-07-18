@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
-import { Config, browser, logging } from 'protractor';
-import { element, by, $, $$, ExpectedConditions } from 'protractor';
+import { Config, browser } from 'protractor';
+import { element, by, By, $, $$, ExpectedConditions } from 'protractor';
 import protractor = require('protractor');
 
 describe('workspace-project App', () => {
@@ -12,6 +12,6 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('cs6261project4 app is running!');
+    expect(element(by.tagName('h1')).getText()).toEqual('Welcome to Resistance Calculator!');
   });
 });

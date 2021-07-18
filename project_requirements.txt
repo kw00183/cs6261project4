@@ -41,11 +41,13 @@ npm --v
 
 <!-- ##### Install Typescript ##### //-->
 
-npm install -g typescript
+npm install -g typescript@3.7.5
 
 <!-- ##### Install Angular CLI ##### //-->
 
-npm install -g @angular/cli
+npm install -g @angular/cli@9.1.6
+
+npm install -g http-server
 
 <!-- ##### Clone Angular Up and Running Git ##### //-->
 
