@@ -75,6 +75,14 @@ export class CalculatorComponent implements OnInit {
     this.colorBand3CSS = this.colorBands[0]['css'];
     this.colorBand4CSS = this.colorMultiplier[0]['css'];
     this.colorBand5CSS = this.colorTolerance[0]['css'];
+
+    this.calculateService.getResistance(
+      this.colorBandDigit1[0]['id'],
+      this.colorBands[0]['id'],
+      this.colorBands[0]['id'],
+      this.colorMultiplier[0]['multiplier'],
+      this.colorTolerance[0]['tolerance']
+    );
   }
 
   ngOnInit(): void {
