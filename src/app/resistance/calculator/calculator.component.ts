@@ -88,7 +88,7 @@ export class CalculatorComponent implements OnInit {
     this.band4 = this.colorMultiplier[0]['multiplier'];
     this.band5 = this.colorTolerance[0]['tolerance'];
 
-    this.getResistance(this.band1, this.band2, this.band3, this.band4, this.band5);
+    this.setBands(this.band1, this.band2, this.band3, this.band4, this.band5);
   }
 
   ngOnInit(): void {
@@ -103,7 +103,7 @@ export class CalculatorComponent implements OnInit {
     return digit1Array;
   }
 
-  getResistance(band1, band2, band3, multiplier, tolerance) {
+  setBands(band1, band2, band3, multiplier, tolerance) {
     this.calculateService.calculateResistance(band1, band2, band3, multiplier, tolerance);
   }
 
@@ -111,30 +111,30 @@ export class CalculatorComponent implements OnInit {
     let newId = parseInt(event.target.value) - 1;
     this.colorBand1CSS = this.colorBandDigit1[newId]['css'];
     this.band1 = this.colorBandDigit1[newId]['id'];
-    this.getResistance(this.band1, this.band2, this.band3, this.band4, this.band5);
+    this.setBands(this.band1, this.band2, this.band3, this.band4, this.band5);
   }
 
   changeDigit2(event) {
     this.colorBand2CSS = this.colorBands[event.target.value]['css'];
     this.band2 = this.colorBands[event.target.value]['id'];
-    this.getResistance(this.band1, this.band2, this.band3, this.band4, this.band5);
+    this.setBands(this.band1, this.band2, this.band3, this.band4, this.band5);
   }
 
   changeDigit3(event) {
     this.colorBand3CSS = this.colorBands[event.target.value]['css'];
     this.band3 = this.colorBands[event.target.value]['id'];
-    this.getResistance(this.band1, this.band2, this.band3, this.band4, this.band5);
+    this.setBands(this.band1, this.band2, this.band3, this.band4, this.band5);
   }
 
   changeMultiplier(event) {
     this.colorBand4CSS = this.colorMultiplier[event.target.value]['css'];
     this.band4 = this.colorMultiplier[event.target.value]['multiplier'];
-    this.getResistance(this.band1, this.band2, this.band3, this.band4, this.band5);
+    this.setBands(this.band1, this.band2, this.band3, this.band4, this.band5);
   }
 
   changeTolerance(event) {
     this.colorBand5CSS = this.colorTolerance[event.target.value]['css'];
     this.band5 = this.colorTolerance[event.target.value]['tolerance'];
-    this.getResistance(this.band1, this.band2, this.band3, this.band4, this.band5);
+    this.setBands(this.band1, this.band2, this.band3, this.band4, this.band5);
   }
 }
