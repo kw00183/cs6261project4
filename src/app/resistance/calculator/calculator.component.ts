@@ -77,4 +77,20 @@ export class CalculatorComponent implements OnInit {
   changeDigit1(event) {
     console.log(event.target.value);
   }
+
+  changeDigit2(event) {
+    console.log(event.target.value);
+  }
+
+  changeDigit3(event) {
+    console.log(event.target.value);
+  }
+
+  changeMultiplier(event) {
+    console.log(event.target.value);
+  }
+
+  changeTolerance(event) {
+    console.log(event.target.value);
+  }
 }

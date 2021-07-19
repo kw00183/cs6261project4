@@ -20,32 +20,32 @@
     <p>Select bands</p><br>
     <span class="inline padding-dropdown">
       <p class="header-digits">1st Digit</p>
-      <select formControlName="digit1" id="#" (change)="changeDigit1($event)">
-        <option *ngFor="let item of colorBandDigit1" [value]="item['id']">{{item['name']}}</option>
+      <select name="digit1" (change)="changeDigit1($event)">
+        <option *ngFor="let item of colorBandDigit1; let i = index" [value]="item['id']" [selected]="item['id']===0">{{item['name']}}</option>
       </select>
     </span>
     <span class="inline padding-dropdown">
       <p class="header-digits">2nd Digit</p>
-      <select name="digit2" id="#">
-        <option *ngFor="let item of colorBands" [value]="item['id']">{{item['name']}}</option>
+      <select name="digit2" (change)="changeDigit2($event)">
+        <option *ngFor="let item of colorBands; let i = index" [value]="item['id']" [selected]="item['id']===0">{{item['name']}}</option>
       </select>
     </span>
     <span class="inline padding-dropdown">
       <p class="header-digits">3rd Digit</p>
-      <select name="digit3" id="#">
-        <option *ngFor="let item of colorBands" [value]="item['id']">{{item['name']}}</option>
+      <select name="digit3" (change)="changeDigit3($event)">
+        <option *ngFor="let item of colorBands; let i = index" [value]="item['id']" [selected]="item['id']===0">{{item['name']}}</option>
       </select>
     </span>
     <span class="inline padding-dropdown">
       <p class="header-digits">Multiplier</p>
-      <select name="multiplier" id="#">
-        <option *ngFor="let item of colorMultiplier" [value]="item['multiplier']">{{item['name']}}</option>
+      <select name="multiplier" (change)="changeMultiplier($event)">
+        <option *ngFor="let item of colorMultiplier" [value]="item['multiplier']" [selected]="item['id']===0">{{item['name']}}</option>
       </select>
     </span>
     <span class="inline padding-dropdown">
       <p class="header-digits">Tolerance</p>
-      <select name="tolerance" id="#">
-        <option *ngFor="let item of colorTolerance" [value]="item['tolerance']">{{item['name']}}</option>
+      <select name="tolerance" (change)="changeTolerance($event)">
+        <option *ngFor="let item of colorTolerance" [value]="item['tolerance']" [selected]="item['id']===0">{{item['name']}}</option>
       </select>
     </span>
   </div>
