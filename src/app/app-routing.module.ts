@@ -3,9 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CalculatorComponent } from './resistance/calculator/calculator.component';
 
-const routes: Routes = [
-  { path: '', redirectTo: '/calculator', pathMatch: 'full' }
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
