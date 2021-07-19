@@ -43,6 +43,8 @@ npm --v
 
 npm install -g typescript@3.7.5
 
+-----> sudo npm install typescript@3.7.5 --save-dev
+
 <!-- ##### Install Angular CLI ##### //-->
 
 npm install -g @angular/cli@9.1.6
