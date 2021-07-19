@@ -16,15 +16,21 @@ pipeline {
             steps {
                 sh 'docker build --tag testimage .'
                 sh 'docker run -d -v ${PWD}:/app -p 4200:4200 testimage --name testcontainer'
+                sh 'sleep 30s'
                 sh './node_modules/protractor/bin/webdriver-manager update'
                 sh 'ng e2e --devServerTarget='
+                sh 'sleep 30s'
                 sh 'docker container rm testcontainer || true'
                 sh 'docker image rm testimage || true'
             }
         }
         stage('deploy') {
             steps {
-                echo 'Not yet implemented'
+              sh 'docker container rm prodcontainer || true'
+              sh 'docker image rm prodimage || true'
+              sh 'sleep 30s'
+              sh 'docker build --tag prodimage .'
+              sh 'docker run -d -v ${PWD}:/app -p 5000:5000 prodimage --name prodcontainer'
             }
         }
     }
