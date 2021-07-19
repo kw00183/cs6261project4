@@ -44,16 +44,16 @@ export class CalculatorComponent implements OnInit {
     ];
 
     this.colorTolerance = [
-      {id: 0, name: '± 1% Brown', tolerance: '± 1%'},
-      {id: 1, name: '± 2% Red', tolerance: '± 2%'},
-      {id: 2, name: '± 3% Orange', tolerance: '± 3%'},
-      {id: 3, name: '± 4% Yellow', tolerance: '± 4%'},
-      {id: 4, name: '± 0.5% Green', tolerance: '± 0.5%'},
-      {id: 5, name: '± 0.25% Blue', tolerance: '± 0.25%'},
-      {id: 6, name: '± 0.10% Violet', tolerance: '± 0.10%'},
-      {id: 7, name: '± 0.05% Gray', tolerance: '± 0.05%'},
-      {id: 8, name: '± 5% Gold', tolerance: '± 5%'},
-      {id: 9, name: '± 10% Silver', tolerance: '± 10%'}
+      {id: 0, name: '± 1% brown', tolerance: '± 1%'},
+      {id: 1, name: '± 2% red', tolerance: '± 2%'},
+      {id: 2, name: '± 3% orange', tolerance: '± 3%'},
+      {id: 3, name: '± 4% yellow', tolerance: '± 4%'},
+      {id: 4, name: '± 0.5% green', tolerance: '± 0.5%'},
+      {id: 5, name: '± 0.25% blue', tolerance: '± 0.25%'},
+      {id: 6, name: '± 0.10% violet', tolerance: '± 0.10%'},
+      {id: 7, name: '± 0.05% grey', tolerance: '± 0.05%'},
+      {id: 8, name: '± 5% gold', tolerance: '± 5%'},
+      {id: 9, name: '± 10% silver', tolerance: '± 10%'}
     ];
   }
 

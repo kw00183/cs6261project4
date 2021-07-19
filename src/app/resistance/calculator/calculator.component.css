@@ -33,3 +33,61 @@ p {
 .inline {
   display: inline-block;
 }
+
+.resistor {
+  width: 15px;
+  height: 30px;
+  display: inline-block;
+}
+
+.color-default {
+  background-color: #E3E3E3;
+}
+
+.color-black {
+  background-color: #000000;
+}
+
+.color-brown {
+  background-color: #663300;
+}
+
+.color-red {
+  background-color: #FF0000;
+}
+
+.color-orange {
+  background-color: #FF6600;
+}
+
+.color-yellow {
+  background-color: #FFFF00;
+}
+
+.color-green {
+  background-color: #009900;
+}
+
+.color-blue {
+  background-color: #000099;
+}
+
+.color-violet {
+  background-color: #660099;
+}
+
+.color-grey {
+  background-color: #666666;
+}
+
+.color-white {
+  background-color: #FFFFFF;
+}
+
+.color-gold {
+  background-color: #CC9900;
+}
+
+.color-silver {
+  background-color: #999999;
+}
