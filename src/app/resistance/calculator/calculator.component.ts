@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class CalculatorComponent implements OnInit {
 
   public colorBands: {};
+  public colorBandDigit01: {};
+
   public colorMultiplier: {};
   public colorTolerance: {};
 
@@ -27,6 +29,8 @@ export class CalculatorComponent implements OnInit {
       {id: 8, name: '8 grey'},
       {id: 9, name: '9 white'}
     ];
+
+    this.colorBandDigit01 = this.digit1Array();
 
     this.colorMultiplier = [
       {id: 0, name: 'x1 black', multiplier: 1},
@@ -62,5 +66,11 @@ export class CalculatorComponent implements OnInit {
 
   trackByFn(index: any, item: any) {
     return index;
+  }
+
+  digit1Array() {
+    let digit1Array = JSON.parse(JSON.stringify(this.colorBands));
+    digit1Array.shift();
+    return digit1Array;
   }
 }
