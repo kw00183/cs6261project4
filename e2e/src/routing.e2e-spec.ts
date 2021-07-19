@@ -44,6 +44,18 @@ describe('Resistance App - Routing Tests', () => {
 
   it('should return the correct resistance and color for random bands', function() {
     element(by.css('#digit1')).element(by.cssContainingText('option', '3 orange')).click();
-    expect(element.all(by.tagName('p')).getText()).toContain('Resistance: 100 ± 1%');
+    expect(element.all(by.tagName('p')).getText()).toContain('Resistance: 300 ± 1%');
+
+    element(by.css('#digit2')).element(by.cssContainingText('option', '7 violet')).click();
+    expect(element.all(by.tagName('p')).getText()).toContain('Resistance: 370 ± 1%');
+
+    element(by.css('#digit3')).element(by.cssContainingText('option', '6 blue')).click();
+    expect(element.all(by.tagName('p')).getText()).toContain('Resistance: 376 ± 1%');
+
+    element(by.css('#multiplier')).element(by.cssContainingText('option', 'x100M grey')).click();
+    expect(element.all(by.tagName('p')).getText()).toContain('Resistance: 37.6G ± 1%');
+
+    element(by.css('#tolerance')).element(by.cssContainingText('option', '± 4% yellow')).click();
+    expect(element.all(by.tagName('p')).getText()).toContain('Resistance: 37.6G ± 4%');
   });
 });
