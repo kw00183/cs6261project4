@@ -5,15 +5,15 @@
   </div>
   <div>
     <span class="resistor color-default"></span>
-    <span class="resistor color-black"></span>
+    <span class="resistor {{colorBand1CSS}}"></span>
     <span class="resistor color-default"></span>
-    <span class="resistor color-blue"></span>
+    <span class="resistor {{colorBand2CSS}}"></span>
     <span class="resistor color-default"></span>
-    <span class="resistor color-green"></span>
+    <span class="resistor {{colorBand3CSS}}"></span>
     <span class="resistor color-default"></span>
-    <span class="resistor color-grey"></span>
+    <span class="resistor {{colorBand4CSS}}"></span>
     <span class="resistor color-default"></span>
-    <span class="resistor color-gold"></span>
+    <span class="resistor {{colorBand5CSS}}"></span>
     <span class="resistor color-default"></span>
   </div><br>
   <div>
@@ -39,13 +39,13 @@
     <span class="inline padding-dropdown">
       <p class="header-digits">Multiplier</p>
       <select name="multiplier" (change)="changeMultiplier($event)">
-        <option *ngFor="let item of colorMultiplier" [value]="item['multiplier']" [selected]="item['id']===0">{{item['name']}}</option>
+        <option *ngFor="let item of colorMultiplier" [value]="item['id']" [selected]="item['id']===0">{{item['name']}}</option>
       </select>
     </span>
     <span class="inline padding-dropdown">
       <p class="header-digits">Tolerance</p>
       <select name="tolerance" (change)="changeTolerance($event)">
-        <option *ngFor="let item of colorTolerance" [value]="item['tolerance']" [selected]="item['id']===0">{{item['name']}}</option>
+        <option *ngFor="let item of colorTolerance" [value]="item['id']" [selected]="item['id']===0">{{item['name']}}</option>
       </select>
     </span>
   </div>

@@ -66,7 +66,11 @@ export class CalculatorComponent implements OnInit {
       {id: 9, name: '± 10% silver', tolerance: '± 10%', css: 'color-silver'}
     ];
 
-    this.colorBand1CSS = this.colorBands['css'];
+    this.colorBand1CSS = this.colorBandDigit1[0]['css'];
+    this.colorBand2CSS = this.colorBands[0]['css'];
+    this.colorBand3CSS = this.colorBands[0]['css'];
+    this.colorBand4CSS = this.colorMultiplier[0]['css'];
+    this.colorBand5CSS = this.colorTolerance[0]['css'];
   }
 
   ngOnInit(): void {
@@ -83,22 +87,23 @@ export class CalculatorComponent implements OnInit {
   }
 
   changeDigit1(event) {
-    console.log(event.target.value);
+    let newId = parseInt(event.target.value) - 1;
+    this.colorBand1CSS = this.colorBandDigit1[newId]['css'];
   }
 
   changeDigit2(event) {
-    console.log(event.target.value);
+    this.colorBand2CSS = this.colorBands[event.target.value]['css'];
   }
 
   changeDigit3(event) {
-    console.log(event.target.value);
+    this.colorBand3CSS = this.colorBands[event.target.value]['css'];
   }
 
   changeMultiplier(event) {
-    console.log(event.target.value);
+    this.colorBand4CSS = this.colorMultiplier[event.target.value]['css'];
   }
 
   changeTolerance(event) {
-    console.log(event.target.value);
+    this.colorBand5CSS = this.colorTolerance[event.target.value]['css'];
   }
 }
