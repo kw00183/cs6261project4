@@ -8,6 +8,16 @@ body, div, span, td, p {
 
 p {
   margin: 0;
+  font-weight: bold;
+}
+
+p.resistance {
+  font-size: 18px;
+}
+
+#resistor {
+  border: 1px solid #000000;
+  display: inline-flex;
 }
 
 #round-container {
@@ -34,7 +44,7 @@ p {
   display: inline-block;
 }
 
-.resistor {
+.band {
   width: 15px;
   height: 30px;
   display: inline-block;

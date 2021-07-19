@@ -1,21 +1,22 @@
 <div id="round-container">
   <form>
   <div>
-    <p *ngIf="observableResistance != ''">Resistance: {{observableResistance}}</p><br>
+    <p class="resistance" *ngIf="observableResistance != ''">Resistance: {{observableResistance}}</p><br>
   </div>
-  <div>
-    <span class="resistor color-default"></span>
-    <span class="resistor {{colorBand1CSS}}"></span>
-    <span class="resistor color-default"></span>
-    <span class="resistor {{colorBand2CSS}}"></span>
-    <span class="resistor color-default"></span>
-    <span class="resistor {{colorBand3CSS}}"></span>
-    <span class="resistor color-default"></span>
-    <span class="resistor {{colorBand4CSS}}"></span>
-    <span class="resistor color-default"></span>
-    <span class="resistor {{colorBand5CSS}}"></span>
-    <span class="resistor color-default"></span>
-  </div><br>
+  <div id="resistor">
+    <span class="band color-default"></span><!--
+    --><span class="band {{colorBand1CSS}}"></span><!--
+    --><span class="band color-default"></span><!--
+    --><span class="band {{colorBand2CSS}}"></span><!--
+    --><span class="band color-default"></span><!--
+    --><span class="band {{colorBand3CSS}}"></span><!--
+    --><span class="band color-default"></span><!--
+    --><span class="band {{colorBand4CSS}}"></span><!--
+    --><span class="band color-default"></span><!--
+    --><span class="band {{colorBand5CSS}}"></span><!--
+    --><span class="band color-default"></span>
+  </div>
+  <br><br>
   <div>
     <p>Select bands</p><br>
     <span class="inline padding-dropdown">

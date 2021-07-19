@@ -16,7 +16,6 @@ export class CalculateService {
   calculateResistance(band1: number, band2: number, band3: number, multiplier: number, tolerance: string): string {
     let digits = parseInt(band1.toString() + band2.toString() + band3.toString());
     let multiply = digits * multiplier;
-    console.log(multiply);
     this.resistance = this.intToString(multiply) + " " + tolerance;
     this.resistance$.next(this.resistance);
     return this.resistance;
