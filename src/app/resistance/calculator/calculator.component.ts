@@ -24,6 +24,12 @@ export class CalculatorComponent implements OnInit {
   public colorBand4CSS: string;
   public colorBand5CSS: string;
 
+  public band1: number;
+  public band2: number;
+  public band3: number;
+  public band4: number;
+  public band5: string;
+
   public observableResistance: string = "";
 
   constructor(private calculateService: CalculateService) {
@@ -53,8 +59,8 @@ export class CalculatorComponent implements OnInit {
       {id: 7, name: 'x10M violet', multiplier: 10000000, css: 'color-violet'},
       {id: 8, name: 'x100M grey', multiplier: 100000000, css: 'color-grey'},
       {id: 9, name: 'x1G white', multiplier: 1000000000, css: 'color-white'},
-      {id: 10, name: '÷10 gold', multiplier: 0.1, css: 'color-gold'},
-      {id: 11, name: '÷100 silver', multiplier: 0.01, css: 'color-silver'}
+      {id: 10, name: '÷10 gold', multiplier: .1, css: 'color-gold'},
+      {id: 11, name: '÷100 silver', multiplier: .01, css: 'color-silver'}
     ];
 
     this.colorTolerance = [
@@ -76,13 +82,13 @@ export class CalculatorComponent implements OnInit {
     this.colorBand4CSS = this.colorMultiplier[0]['css'];
     this.colorBand5CSS = this.colorTolerance[0]['css'];
 
-    this.calculateService.getResistance(
-      this.colorBandDigit1[0]['id'],
-      this.colorBands[0]['id'],
-      this.colorBands[0]['id'],
-      this.colorMultiplier[0]['multiplier'],
-      this.colorTolerance[0]['tolerance']
-    );
+    this.band1 = this.colorBandDigit1[0]['id'];
+    this.band2 = this.colorBands[0]['id'];
+    this.band3 = this.colorBands[0]['id'];
+    this.band4 = this.colorMultiplier[0]['multiplier'];
+    this.band5 = this.colorTolerance[0]['tolerance'];
+
+    this.getResistance(this.band1, this.band2, this.band3, this.band4, this.band5);
   }
 
   ngOnInit(): void {
@@ -97,24 +103,38 @@ export class CalculatorComponent implements OnInit {
     return digit1Array;
   }
 
+  getResistance(band1, band2, band3, multiplier, tolerance) {
+    this.calculateService.calculateResistance(band1, band2, band3, multiplier, tolerance);
+  }
+
   changeDigit1(event) {
     let newId = parseInt(event.target.value) - 1;
     this.colorBand1CSS = this.colorBandDigit1[newId]['css'];
+    this.band1 = this.colorBandDigit1[newId]['id'];
+    this.getResistance(this.band1, this.band2, this.band3, this.band4, this.band5);
   }
 
   changeDigit2(event) {
     this.colorBand2CSS = this.colorBands[event.target.value]['css'];
+    this.band2 = this.colorBands[event.target.value]['id'];
+    this.getResistance(this.band1, this.band2, this.band3, this.band4, this.band5);
   }
 
   changeDigit3(event) {
     this.colorBand3CSS = this.colorBands[event.target.value]['css'];
+    this.band3 = this.colorBands[event.target.value]['id'];
+    this.getResistance(this.band1, this.band2, this.band3, this.band4, this.band5);
   }
 
   changeMultiplier(event) {
     this.colorBand4CSS = this.colorMultiplier[event.target.value]['css'];
+    this.band4 = this.colorMultiplier[event.target.value]['multiplier'];
+    this.getResistance(this.band1, this.band2, this.band3, this.band4, this.band5);
   }
 
   changeTolerance(event) {
     this.colorBand5CSS = this.colorTolerance[event.target.value]['css'];
+    this.band5 = this.colorTolerance[event.target.value]['tolerance'];
+    this.getResistance(this.band1, this.band2, this.band3, this.band4, this.band5);
   }
 }
