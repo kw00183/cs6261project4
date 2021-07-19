@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing'
 import { FormsModule } from '@angular/forms';
 import { Component, Inject } from '@angular/core';
 
+import { By } from "@angular/platform-browser";
+
 import { CalculateService } from '../../services/calculate.service';
 import { CalculatorComponent } from './calculator.component';
 
@@ -60,9 +62,13 @@ describe('CalculatorComponent', () => {
     let band4 = component.colorMultiplier[0]['multiplier'];
     let band5 = component.colorTolerance[0]['tolerance'];
     component.setBands(band1, band2, band3, band4, band5);
-    component.changeDigit1(5);
 
-    expect(calculateService.getResistance()).toEqual('500 ± 1%');
+    const select: HTMLSelectElement = fixture.debugElement.query(By.css('#digit1')).nativeElement;
+    select.value = select.options[3].value;
+    select.dispatchEvent(new Event('change'));
+    fixture.detectChanges();
+
+    expect(calculateService.getResistance()).toEqual('400 ± 1%');
   });
 
   it('should return correct resistance with change band2', () => {
@@ -72,9 +78,13 @@ describe('CalculatorComponent', () => {
     let band4 = component.colorMultiplier[0]['multiplier'];
     let band5 = component.colorTolerance[0]['tolerance'];
     component.setBands(band1, band2, band3, band4, band5);
-    component.changeDigit2(3);
 
-    expect(calculateService.getResistance()).toEqual('130 ± 1%');
+    const select: HTMLSelectElement = fixture.debugElement.query(By.css('#digit2')).nativeElement;
+    select.value = select.options[6].value;
+    select.dispatchEvent(new Event('change'));
+    fixture.detectChanges();
+
+    expect(calculateService.getResistance()).toEqual('160 ± 1%');
   });
 
   it('should return correct resistance with change band3', () => {
@@ -84,9 +94,13 @@ describe('CalculatorComponent', () => {
     let band4 = component.colorMultiplier[0]['multiplier'];
     let band5 = component.colorTolerance[0]['tolerance'];
     component.setBands(band1, band2, band3, band4, band5);
-    component.changeDigit3(5);
 
-    expect(calculateService.getResistance()).toEqual('105 ± 1%');
+    const select: HTMLSelectElement = fixture.debugElement.query(By.css('#digit3')).nativeElement;
+    select.value = select.options[2].value;
+    select.dispatchEvent(new Event('change'));
+    fixture.detectChanges();
+
+    expect(calculateService.getResistance()).toEqual('102 ± 1%');
   });
 
   it('should return correct resistance with change band4', () => {
@@ -96,7 +110,11 @@ describe('CalculatorComponent', () => {
     let band4 = component.colorMultiplier[0]['multiplier'];
     let band5 = component.colorTolerance[0]['tolerance'];
     component.setBands(band1, band2, band3, band4, band5);
-    component.changeDigit4(3);
+
+    const select: HTMLSelectElement = fixture.debugElement.query(By.css('#multiplier')).nativeElement;
+    select.value = select.options[3].value;  // <-- select a new value
+    select.dispatchEvent(new Event('change'));
+    fixture.detectChanges();
 
     expect(calculateService.getResistance()).toEqual('100K ± 1%');
   });
@@ -108,8 +126,12 @@ describe('CalculatorComponent', () => {
     let band4 = component.colorMultiplier[0]['multiplier'];
     let band5 = component.colorTolerance[0]['tolerance'];
     component.setBands(band1, band2, band3, band4, band5);
-    component.changeDigit5(5);
 
-    expect(calculateService.getResistance()).toEqual('100 ± 0.25%');
+    const select: HTMLSelectElement = fixture.debugElement.query(By.css('#tolerance')).nativeElement;
+    select.value = select.options[6].value;  // <-- select a new value
+    select.dispatchEvent(new Event('change'));
+    fixture.detectChanges();
+
+    expect(calculateService.getResistance()).toEqual('100 ± 0.10%');
   });
 });

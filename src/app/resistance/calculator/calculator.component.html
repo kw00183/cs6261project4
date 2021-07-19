@@ -21,31 +21,31 @@
     <p>Select bands</p><br>
     <span class="inline padding-dropdown">
       <p class="header-digits">1st Digit</p>
-      <select name="digit1" (change)="changeDigit1($event)">
+      <select id="digit1" name="digit1" (change)="changeDigit1($event)">
         <option *ngFor="let item of colorBandDigit1; let i = index" [value]="item['id']" [selected]="item['id']===0">{{item['name']}}</option>
       </select>
     </span>
     <span class="inline padding-dropdown">
       <p class="header-digits">2nd Digit</p>
-      <select name="digit2" (change)="changeDigit2($event)">
+      <select id="digit2" name="digit2" (change)="changeDigit2($event)">
         <option *ngFor="let item of colorBands; let i = index" [value]="item['id']" [selected]="item['id']===0">{{item['name']}}</option>
       </select>
     </span>
     <span class="inline padding-dropdown">
       <p class="header-digits">3rd Digit</p>
-      <select name="digit3" (change)="changeDigit3($event)">
+      <select id="digit3" name="digit3" (change)="changeDigit3($event)">
         <option *ngFor="let item of colorBands; let i = index" [value]="item['id']" [selected]="item['id']===0">{{item['name']}}</option>
       </select>
     </span>
     <span class="inline padding-dropdown">
       <p class="header-digits">Multiplier</p>
-      <select name="multiplier" (change)="changeMultiplier($event)">
+      <select id="multiplier" name="multiplier" (change)="changeMultiplier($event)">
         <option *ngFor="let item of colorMultiplier" [value]="item['id']" [selected]="item['id']===0">{{item['name']}}</option>
       </select>
     </span>
     <span class="inline padding-dropdown">
       <p class="header-digits">Tolerance</p>
-      <select name="tolerance" (change)="changeTolerance($event)">
+      <select id="tolerance" name="tolerance" (change)="changeTolerance($event)">
         <option *ngFor="let item of colorTolerance" [value]="item['id']" [selected]="item['id']===0">{{item['name']}}</option>
       </select>
     </span>
