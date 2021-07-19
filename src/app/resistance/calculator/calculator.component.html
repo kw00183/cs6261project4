@@ -1,43 +1,35 @@
+<form>
 <div id="round-container">
   <p>Select bands</p><br>
   <span class="inline">
     <p class="header-digits">1st Digit</p>
     <select name="digit1" id="#">
-      <option selected="selected" value="one">Option 1</option>
-      <option value="two">Option 2</option>
-      <option value="three">Option 3</option>
+      <option *ngFor="let item of colorBands" [value]="item['id']">{{item['name']}}</option>
     </select>
   </span>
   <span class="inline">
     <p class="header-digits">2nd Digit</p>
     <select name="digit2" id="#">
-      <option selected="selected" value="one">Option 1</option>
-      <option value="two">Option 2</option>
-      <option value="three">Option 3</option>
+      <option *ngFor="let item of colorBands" [value]="item['id']">{{item['name']}}</option>
     </select>
   </span>
   <span class="inline">
     <p class="header-digits">3rd Digit</p>
     <select name="digit3" id="#">
-      <option selected="selected" value="one">Option 1</option>
-      <option value="two">Option 2</option>
-      <option value="three">Option 3</option>
+      <option *ngFor="let item of colorBands" [value]="item['id']">{{item['name']}}</option>
     </select>
   </span>
   <span class="inline padding-left20">
     <p class="header-digits">Multiplier</p>
     <select name="multiplier" id="#">
-      <option selected="selected" value="one">Option 1</option>
-      <option value="two">Option 2</option>
-      <option value="three">Option 3</option>
+      <option *ngFor="let item of colorMultiplier" [value]="item['multiplier']">{{item['name']}}</option>
     </select>
   </span>
   <span class="inline padding-left20">
     <p class="header-digits">Tolerance</p>
     <select name="tolerance" id="#">
-      <option selected="selected" value="one">Option 1</option>
-      <option value="two">Option 2</option>
-      <option value="three">Option 3</option>
+      <option *ngFor="let item of colorTolerance" [value]="item['tolerance']">{{item['name']}}</option>
     </select>
   </span>
 </div>
+</form>

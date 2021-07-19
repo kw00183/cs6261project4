@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-calculator',
@@ -26,34 +29,38 @@ export class CalculatorComponent implements OnInit {
     ];
 
     this.colorMultiplier = [
-      {id: 0, name: 'x1 black', value: 1},
-      {id: 1, name: 'x10 brown', value: 10},
-      {id: 2, name: 'x100 red', value: 100},
-      {id: 3, name: 'x1K orange', value: 1000},
-      {id: 4, name: 'x10K yellow', value: 10000},
-      {id: 5, name: 'x100K green', value: 100000},
-      {id: 6, name: 'x1M blue', value: 1000000},
-      {id: 7, name: 'x10M violet', value: 10000000},
-      {id: 8, name: 'x100M grey', value: 100000000},
-      {id: 9, name: 'x1G white', value: 1000000000},
-      {id: 10, name: '÷10 gold', value: 0.1},
-      {id: 11, name: '÷100 silver', value: 0.01}
+      {id: 0, name: 'x1 black', multiplier: 1},
+      {id: 1, name: 'x10 brown', multiplier: 10},
+      {id: 2, name: 'x100 red', multiplier: 100},
+      {id: 3, name: 'x1K orange', multiplier: 1000},
+      {id: 4, name: 'x10K yellow', multiplier: 10000},
+      {id: 5, name: 'x100K green', multiplier: 100000},
+      {id: 6, name: 'x1M blue', multiplier: 1000000},
+      {id: 7, name: 'x10M violet', multiplier: 10000000},
+      {id: 8, name: 'x100M grey', multiplier: 100000000},
+      {id: 9, name: 'x1G white', multiplier: 1000000000},
+      {id: 10, name: '÷10 gold', multiplier: 0.1},
+      {id: 11, name: '÷100 silver', multiplier: 0.01}
     ];
 
     this.colorTolerance = [
-      {id: 0, name: '± 1% Brown', value: '± 1%'},
-      {id: 1, name: '± 2% Red', value: '± 2%'},
-      {id: 2, name: '± 3% Orange', value: '± 3%'},
-      {id: 3, name: '± 4% Yellow', value: '± 4%'},
-      {id: 4, name: '± 0.5% Green', value: '± 0.5%'},
-      {id: 5, name: '± 0.25% Blue', value: '± 0.25%'},
-      {id: 6, name: '± 0.10% Violet', value: '± 0.10%'},
-      {id: 7, name: '± 0.05% Gray', value: '± 0.05%'},
-      {id: 8, name: '± 5% Gold', value: '± 5%'},
-      {id: 9, name: '± 10% Silver', value: '± 10%'}
+      {id: 0, name: '± 1% Brown', tolerance: '± 1%'},
+      {id: 1, name: '± 2% Red', tolerance: '± 2%'},
+      {id: 2, name: '± 3% Orange', tolerance: '± 3%'},
+      {id: 3, name: '± 4% Yellow', tolerance: '± 4%'},
+      {id: 4, name: '± 0.5% Green', tolerance: '± 0.5%'},
+      {id: 5, name: '± 0.25% Blue', tolerance: '± 0.25%'},
+      {id: 6, name: '± 0.10% Violet', tolerance: '± 0.10%'},
+      {id: 7, name: '± 0.05% Gray', tolerance: '± 0.05%'},
+      {id: 8, name: '± 5% Gold', tolerance: '± 5%'},
+      {id: 9, name: '± 10% Silver', tolerance: '± 10%'}
     ];
   }
 
   ngOnInit(): void {
+  }
+
+  trackByFn(index: any, item: any) {
+    return index;
   }
 }
