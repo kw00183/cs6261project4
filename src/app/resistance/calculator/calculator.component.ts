@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Validators, FormBuilder } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { CalculateService } from '../../services/calculate.service';
+
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
@@ -22,7 +24,9 @@ export class CalculatorComponent implements OnInit {
   public colorBand4CSS: string;
   public colorBand5CSS: string;
 
-  constructor() {
+  public observableResistance: string = "";
+
+  constructor(private calculateService: CalculateService) {
     this.colorBands = [
       {id: 0, name: '0 black', css: 'color-black'},
       {id: 1, name: '1 brown', css: 'color-brown'},
@@ -74,10 +78,9 @@ export class CalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  trackByFn(index: any, item: any) {
-    return index;
+    this.calculateService.resistance$.subscribe(resistance => {
+      this.observableResistance = resistance;
+    });
   }
 
   digit1Array() {

@@ -1,7 +1,7 @@
 <div id="round-container">
   <form>
   <div>
-    <p>Resistance: 865M +/- 0.1%</p><br>
+    <p *ngIf="observableResistance != ''">Resistance: {{observableResistance}}</p><br>
   </div>
   <div>
     <span class="resistor color-default"></span>
