@@ -17,6 +17,7 @@ pipeline {
                 sh 'docker build --tag testimage .'
                 sh 'docker run -d -v ${WORKSPACE}:/app -p 4200:4200 testimage --name testcontainer'
                 sh 'sleep 30s'
+                sh 'npm install -f protractor'
                 sh './node_modules/protractor/bin/webdriver-manager update'
                 sh 'ng e2e --devServerTarget='
             }
