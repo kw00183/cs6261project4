@@ -15,10 +15,10 @@ pipeline {
         stage('e2e') {
             steps {
                 sh 'docker build --tag testimage .'
-                sh 'docker run -d -v $WORKSPACE -p 4200:4200 testimage --name testcontainer'
+                sh 'docker run -d -v ${WORKSPACE}:/app -p 4200:4200 testimage --name testcontainer'
                 sh 'sleep 30s'
                 sh './node_modules/protractor/bin/webdriver-manager update'
-                sh 'ng e2e --devServerTarget=http://localhost:4200/'
+                sh 'ng e2e --devServerTarget='
             }
             post {
               always {
@@ -33,7 +33,7 @@ pipeline {
               sh 'docker image rm prodimage || true'
               sh 'sleep 30s'
               sh 'docker build --tag prodimage .'
-              sh 'docker run -d -v $WORKSPACE -p 5000:5000 prodimage --name prodcontainer'
+              sh 'docker run -d -v ${WORKSPACE}:/app -p 5000:5000 prodimage --name prodcontainer'
             }
         }
     }
