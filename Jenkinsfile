@@ -15,11 +15,10 @@ pipeline {
         stage('e2e') {
             steps {
                 sh 'docker build --tag testimage .'
-                sh 'docker run -d -v ${PWD}:/app -p 4200:4200 testimage --name testcontainer'
+                sh 'docker run -d -v ${PWD}:/app -v /app/node_modules -p 4200:4200 testimage --name testcontainer'
                 sh 'sleep 30s'
-                sh 'npm install protractor -g'
-                sh 'node_modules/protractor/bin/webdriver-manager update'
-                sh 'node_modules/protractor/bin/webdriver-manager start'
+                sh './node_modules/protractor/bin/webdriver-manager update'
+                sh './node_modules/protractor/bin/webdriver-manager start'
                 sh 'ng e2e --devServerTarget='
             }
             post {
@@ -35,7 +34,7 @@ pipeline {
               sh 'docker image rm prodimage || true'
               sh 'sleep 30s'
               sh 'docker build --tag prodimage .'
-              sh 'docker run -d -v ${PWD}:/app -p 5000:5000 prodimage --name prodcontainer'
+              sh 'docker run -d -v ${PWD}:/app -v /app/node_modules -p 5000:5000 prodimage --name prodcontainer'
             }
         }
     }
