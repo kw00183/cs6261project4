@@ -18,7 +18,7 @@ pipeline {
                 sh 'docker run -d -v ${PWD}:/app -v /app/node_modules -p 4200:4200 testimage --name testcontainer'
                 sh 'sleep 30s'
                 sh './node_modules/protractor/bin/webdriver-manager update'
-                sh 'ng e2e --devServerTarget=localhost/4200'
+                sh 'ng e2e --devServerTarget=http://localhost:4200/'
             }
             post {
               always {
