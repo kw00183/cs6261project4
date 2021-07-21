@@ -26,7 +26,7 @@ pipeline {
             //    sh 'docker container rm testcontainer || true'
             //    sh 'docker image rm testimage || true'
             //  }
-            }
+            //}
         }
         stage('deploy') {
             steps {
