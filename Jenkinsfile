@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'docker container rm testcontainer || true'
-                sh 'docker image rm testimage || true'
+                sh 'docker container rm e2econtainer || true'
+                sh 'docker image rm e2eimage || true'
                 sh 'sleep 30s'
                 sh 'npm install'
             }
@@ -17,8 +17,8 @@ pipeline {
         }
         stage('e2e') {
             steps {
-                sh 'docker build --tag testimage .'
-                sh 'docker run -d -v ${WORKSPACE}:/app -p 4200:4200 --name testcontainer testimage'
+                sh 'docker build --tag e2eimage .'
+                sh 'docker run -d -v ${WORKSPACE}:/app -p 4200:4200 --name e2econtainer testimage'
                 sh 'sleep 30s'
                 sh 'npm install -f protractor'
                 sh './node_modules/protractor/bin/webdriver-manager update'
