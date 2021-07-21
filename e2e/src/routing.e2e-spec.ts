@@ -4,10 +4,10 @@ import { element, by, By, $, $$, ExpectedConditions } from 'protractor';
 import protractor = require('protractor');
 
 describe('Resistance App - Routing Tests', () => {
-  var page: AppPage;
+  let page: AppPage;
 
   beforeEach(() => {
-    browser.get('/');
+    page = new AppPage();
   });
 
   it('should load the app with title', function() {
