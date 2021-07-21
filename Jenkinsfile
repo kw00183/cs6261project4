@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-                sh 'fuser -k 4200/tcp'
-                sh 'fuser -k 5000/tcp'
+                sh 'kill $(lsof -t -i:4200)'
+                sh 'kill $(lsof -t -i:5000)'
                 sh 'docker container rm e2econtainer || true'
                 sh 'docker image rm e2eimage || true'
             }
