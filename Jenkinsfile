@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-                sh 'kill $(lsof -t -i:4200)'
-                sh 'kill $(lsof -t -i:5000)'
+                sh 'ss --kill state listening src :4200)'
+                sh 'ss --kill state listening src :5000)'
                 sh 'docker container rm e2econtainer || true'
                 sh 'docker image rm e2eimage || true'
             }
