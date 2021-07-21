@@ -34,7 +34,7 @@ pipeline {
               sh 'docker image rm prodimage || true'
               sh 'sleep 30s'
               sh 'docker build --tag prodimage .'
-              sh 'docker run -d -v ${WORKSPACE}:/app -p 5000:5000 --name prodcontainer prodimage'
+              sh 'docker run -d -v ${WORKSPACE}:/app -p 5000:4200 --name prodcontainer prodimage'
             }
         }
     }
