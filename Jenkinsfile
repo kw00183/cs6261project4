@@ -15,7 +15,7 @@ pipeline {
         stage('e2e') {
             steps {
                 sh 'docker build --tag testimage .'
-                sh 'docker run -d -v ${WORKSPACE}:/app -p 4200:4200 testimage --name testcontainer'
+                sh 'docker run -d -v ${WORKSPACE}:/app -p 4200:4200 --name testcontainer testimage'
                 sh 'sleep 30s'
                 sh 'npm install -f protractor'
                 sh './node_modules/protractor/bin/webdriver-manager update'
@@ -34,7 +34,7 @@ pipeline {
               sh 'docker image rm prodimage || true'
               sh 'sleep 30s'
               sh 'docker build --tag prodimage .'
-              sh 'docker run -d -v ${WORKSPACE}:/app -p 5000:5000 prodimage --name prodcontainer'
+              sh 'docker run -d -v ${WORKSPACE}:/app -p 5000:5000 --name prodcontainer prodimage'
             }
         }
     }
