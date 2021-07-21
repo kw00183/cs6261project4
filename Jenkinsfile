@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-                sh 'service docker stop'
-                sh 'service docker start'
+                sh 'fuser -k 4200/tcp'
+                sh 'fuser -k 5000/tcp'
                 sh 'docker container rm e2econtainer || true'
                 sh 'docker image rm e2eimage || true'
             }
