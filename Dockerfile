@@ -9,6 +9,4 @@ RUN npm install -g http-server
 
 COPY ./docker_commands.sh .
 
-RUN chmod a+x ./docker_commands.sh
-
 CMD ./docker_commands.sh
