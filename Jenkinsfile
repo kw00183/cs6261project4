@@ -2,11 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('build') {
+        stage('clean') {
             steps {
+                sh 'service docker stop'
+                sh 'service docker start'
                 sh 'docker container rm e2econtainer || true'
                 sh 'docker image rm e2eimage || true'
-                sh 'sleep 30s'
+            }
+        }
+        stage('build') {
+            steps {
                 sh 'npm install'
             }
         }
