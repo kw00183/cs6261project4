@@ -8,6 +8,8 @@ describe('Resistance App - Routing Tests', () => {
 
   beforeEach(() => {
     page = new AppPage();
+    browser.ignoreSynchronisation = true;
+    browser.get('');
   });
 
   it('should load the app with title', function() {
