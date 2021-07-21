@@ -7,7 +7,8 @@ describe('Resistance App - Routing Tests', () => {
   let page: AppPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new AppPage
+    browser.waitForAngularEnabled(false);
     browser.ignoreSynchronisation = true;
     browser.get('');
   });
