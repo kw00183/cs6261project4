@@ -4,6 +4,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                sh 'docker container rm testcontainer || true'
+                sh 'docker image rm testimage || true'
+                sh 'sleep 30s'
                 sh 'npm install'
             }
         }
@@ -21,12 +24,12 @@ pipeline {
                 sh './node_modules/protractor/bin/webdriver-manager update'
                 sh 'ng e2e --devServerTarget='
             }
-            //post {
-            //  always {
-            //    sh 'docker container rm testcontainer || true'
-            //    sh 'docker image rm testimage || true'
-            //  }
-            //}
+            post {
+              always {
+                sh 'docker container rm testcontainer || true'
+                sh 'docker image rm testimage || true'
+              }
+            }
         }
         stage('deploy') {
             steps {
